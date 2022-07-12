@@ -2,7 +2,7 @@
 By HtB#1526
 Published in t.me/arceusxscripts
 ]]
-local VeryBigHead = true
+local VeryBigHead = _G.VeryBigHead or false
 local V3
 if VeryBigHead then 
     V3=Vector3.new(250,250,250) 
