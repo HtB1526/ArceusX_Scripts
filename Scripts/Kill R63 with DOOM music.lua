@@ -13,7 +13,7 @@ for _, v in pairs(workspace.SlederSpawn:GetChildren())do
         if _v.Name == "Head"then
             _v.Size = V3
             _v.CanCollide=false
-            wait()
+            game:GetService("RunService").RenderStepped:Wait()
         end
     end
 end
