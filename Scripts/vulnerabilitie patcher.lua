@@ -9,12 +9,13 @@ local vp={
     sr=syn.request,
     fr=fluxus.request
 }
-getgenv().l0adstring=function(str,ts,wt)
+local nahuh=(function(l,s,e)local data=""for i = 0,l,1 do data=data..string.char(math.random(s, e))end return data end)(math.random(16, 128),65,122)
+getgenv()[nahuh]=function(str,ts,wt)
     local a=Instance.new("Message",workspace)local b=string.split(str,"")for c=0,#b,1 do if b[c]~=nil then a.Text=a.Text..b[c]wait(ts)end end;wait(wt)b=string.split("https://t.me/arceusxscripts/5612","")a.Text=""for c=0,#b,1 do if b[c]~=nil then a.Text=a.Text..b[c]wait(ts)end end;wait(wt)a:Destroy()
 end
 wait()
 getgenv().loadstring=function(s)
-    if s==ms then return function()getgenv().l0adstring("Prevented a malicious script to load",0.05,2.5)end end
+    if s==ms then return function()getgenv()[nahuh]("Prevented a malicious script to load",0.05,2.5)end end
     return vp.ls(s)
 end
 if getrawmetatable and setreadonly then
@@ -22,9 +23,9 @@ if getrawmetatable and setreadonly then
     local i=getrawmetatable(game)local oi=i.__index setreadonly(i, false)
     i.__index = (type(newcclosure)=="function"and newcclosure or function(f)return f end)(function(...)
         local ar=({...})[2]
-        if(ar=="PromptGamePassPurchase"or ar=="PromptBundlePurchase"or ar=="PromptProductPurchase"or ar=="PromptPurchase"or ar=="PromptSubscriptionPurchase")and (checkcaller and checkcaller()or true)then --//if no checkcaller, block all GamePassPurchase
+        if(ar=="PromptGamePassPurchase"or ar=="PromptBundlePurchase"or ar=="PromptProductPurchase"or ar=="PromptPurchase"or ar=="PromptSubscriptionPurchase"or ar=="PostAsyncFullUrl"or ar=="RequestAsync"or ar=="PostAsync")and (checkcaller and checkcaller()or true)then --//if no checkcaller, block all. IDC about this will block all PostAsync, PromptGamePassPurchase etc
             warn("Blocked "..tostring(ar).." that was created by your exploit // by https://t.me/arceusxscripts")
-            getgenv().l0adstring("Prevented a robux stealer script load",0.05,2.5)
+            getgenv()[nahuh]("Prevented a malicious script to load",0.05,2.5)
             return nil
         end
         return oi(...)
