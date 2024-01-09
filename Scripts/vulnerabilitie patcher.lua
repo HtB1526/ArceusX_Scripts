@@ -21,7 +21,7 @@ end
 if getrawmetatable and setreadonly then
     --//as i think this better bc some exploits dev's cannot "getgenv().hookmetamethod=function(inst,nc,func)local rmt=getrawmetatable blah blah blah"
     local i=getrawmetatable(game)local oi=i.__index setreadonly(i, false)
-    i.__index = (type(newcclosure)=="function"and newcclosure or function(f)return f end)(function(...)
+    i.__index = (newcclosure or function(f)return f end)(function(...)
         local ar=({...})[2]
         if(ar=="PromptGamePassPurchase"or ar=="PromptBundlePurchase"or ar=="PromptProductPurchase"or ar=="PromptPurchase"or ar=="PromptSubscriptionPurchase"or ar=="PostAsyncFullUrl"or ar=="RequestAsync"or ar=="PostAsync")and (checkcaller and checkcaller()or true)then --//if no checkcaller, block all. IDC about this will block all PostAsync, PromptGamePassPurchase etc
             warn("Blocked "..tostring(ar).." that was created by your exploit // by https://t.me/arceusxscripts")
@@ -38,7 +38,7 @@ pcall(function()
         getgenv()[o]=n
     end
     local function wrap(t,o)
-        if string.find(t.Url, "https://", 1, false)and string.find(t.Url, "roblox.com", 1, false)then
+        if string.match(t.Url, "https://")and string.match(t.Url, "roblox.com")and not string.match(t.Url, "games.roblox.com") then
             return{Success=true,StatusCode=200,StatusMessage="OK",Headers={},Cookies={},Body="{\"status\":\"OK\"}"}
         end
         return o(t)
