@@ -1,1 +1,1 @@
-game:GetService"ReplicatedStorage".Remotes.CurrentRound:FireServer(3)local bp=game.Players.LocalPlayer.PlayerValues bp.SinglePlayer.DealerHP=1 bp.SinglePlayer.PlayerHP=math.huge
+game:GetService"ReplicatedStorage".Remotes.CurrentRound:FireServer(3)local bp=game.Players.LocalPlayer.PlayerValues repeat task.wait()pcall(function()bp.SinglePlayer.DealerHP=1 bp.SinglePlayer.PlayerHP=math.huge end)until _G.shlagadawgs_FFFFFF~=nil
