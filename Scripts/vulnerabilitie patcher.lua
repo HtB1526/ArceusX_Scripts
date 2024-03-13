@@ -1,6 +1,7 @@
---//this will prevent a malicious script for load + anti-robux stealer + block all requests to roblox
+--//this will prevent a malicious script for load + anti-robux stealer + block all requests to roblox + Anti "Byfron" Trolling (nameless admin, fck u)
 --//<3 https://t.me/arceusxscripts
-local ms=game:HttpGet"https://raw.githubusercontent.com/sekrte3345544/Roblox/main/new-obfuscated.lua"
+local ms,ByfronTech=game:HttpGet"https://raw.githubusercontent.com/sekrte3345544/Roblox/main/new-obfuscated.lua","https://raw.githubusercontent.com/FilteringEnabled/FE/main/asd"
+local ByfronTechTrolling=game:HttpGet(ByfronTech)
 local vp={
     ls=loadstring,
     request=request,
@@ -16,6 +17,7 @@ end
 wait()
 getgenv().loadstring=function(s)
     if s==ms then return function()getgenv()[nahuh]("Prevented a malicious script to load",0.05,2.5)end end
+    if s==ByfronTechTrolling then return function()getgenv()[nahuh]("Prevented a trolling script to load",0.05,2.5)end end
     return vp.ls(s)
 end
 if getrawmetatable and setreadonly then
@@ -41,6 +43,7 @@ pcall(function()
         if string.match(t.Url, "https://")and string.match(t.Url, "roblox.com")and not string.match(t.Url, "games.roblox.com") then
             return{Success=true,StatusCode=200,StatusMessage="OK",Headers={},Cookies={},Body="{\"status\":\"OK\"}"}
         end
+        if t.Url==ByfronTech then return{Success=true,StatusCode=200,StatusMessage="OK",Headers={},Cookies={},Body="getgenv()['"..nahuh.."'](\"Prevented a trolling script to load\",0.05,2.5)"}end
         return o(t)
     end
     if request~=nil then cf("request",function(t)return wrap(t,vp.request)end)end
