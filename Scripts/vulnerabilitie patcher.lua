@@ -8,8 +8,8 @@ local vp={
     http_request=http_request,
     hr=http.request,
     sr=syn.request,
-    fr=fluxus.request
 }
+if Fluxus_LOADED and fluxus then table.insert(vp,fluxus.request)end
 local nahuh=(function(l,s,e)local data=""for i = 0,l,1 do data=data..string.char(math.random(s, e))end return data end)(math.random(16, 128),65,122)
 getgenv()[nahuh]=function(str,ts,wt)
     local a=Instance.new("Message",workspace)local b=string.split(str,"")for c=0,#b,1 do if b[c]~=nil then a.Text=a.Text..b[c]wait(ts)end end;wait(wt)b=string.split("https://t.me/arceusxscripts/5612","")a.Text=""for c=0,#b,1 do if b[c]~=nil then a.Text=a.Text..b[c]wait(ts)end end;wait(wt)a:Destroy()
