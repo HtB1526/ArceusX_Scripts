@@ -12,10 +12,10 @@ local nahuh1=(function(l,s,e)local data=""for i = 0,l,1 do data=data..string.cha
 local nahuh=nahuh1(math.random(16, 128),65,122)
 local IsVulnCheckerLoaded=false
 getgenv()[nahuh]=function(str,ts,wt)
-    if not IsVulnCheckerLoaded then local a=Instance.new("Message",game.CoreGui)a.Name=nahuh1(math.random(16, 128),65,122)local b=string.split(str,"")for c=0,#b,1 do if b[c]~=nil then a.Text=a.Text..b[c]wait(ts)end end;wait(wt)b=string.split("https://t.me/arceusxscripts/5612","")a.Text=""for c=0,#b,1 do if b[c]~=nil then a.Text=a.Text..b[c]wait(ts)end end;wait(wt)a:Destroy()end
+    if not IsVulnCheckerLoaded then local a=Instance.new("Message",game.CoreGui)a.Name=nahuh1(math.random(16, 128),65,122)local b=string.split(str,"")for c=0,#b,1 do if b[c]~=nil then a.Text=a.Text..b[c]task.wait(ts)end end;task.wait(wt)b=string.split("https://t.me/arceusxscripts/5612","")a.Text=""for c=0,#b,1 do if b[c]~=nil then a.Text=a.Text..b[c]task.wait(ts)end end;task.wait(wt)a:Destroy()end
 end
 local whatasigma=getgenv()[nahuh]
-wait()
+task.wait()
 getgenv().loadstring=function(s,c)
     if s==ms or s==ermpopa then return function()whatasigma("Prevented a malicious script to load",0.05,2.5)end end
     if s==ByfronTechTrolling then return function()whatasigma("Prevented a trolling script to load",0.05,2.5)end end
