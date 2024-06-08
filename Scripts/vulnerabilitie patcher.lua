@@ -7,7 +7,7 @@ local vp={
     request=request,
     http_request=http_request,
     hr=http.request,
-    sr=syn.request,
+    --sr=syn.request,
 }
 if Fluxus_LOADED and fluxus then table.insert(vp,fluxus.request)end
 local nahuh=(function(l,s,e)local data=""for i = 0,l,1 do data=data..string.char(math.random(s, e))end return data:gsub("'","") end)(math.random(16, 128),65,122)
