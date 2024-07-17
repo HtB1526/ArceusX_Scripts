@@ -28,22 +28,24 @@ local o2;o2=hookmetamethod(game,"__index",newcclosure(function(s,k)
     return o2(s,k)
 end))
 local o;o=hookmetamethod(game,"__namecall",newcclosure(function(s,...)
-    local ar,args=getnamecallmethod(),{...}
-    local errstr="Blocked "..tostring(ar).." that was created by your exploit // by https://t.me/arceusxscripts"
-    if (ar=="PerformPurchaseV2"or ar=="OpenNativeOverlay"or ar=="AddCoreScriptLocal"or ar=="EmitHybridEvent"or ar=="SendCommand"or ar=="ReturnToJavaScript"or ar=="PromptRobloxPurchase"or ar=="PromptThirdPartyPurchase"or ar=="PostAsyncFullUrl"or ar=="GetAsyncFullUrl"or ar=="PostAsyncFullUrl"or ar=="RequestAsync"or ar=="PostAsync"or ar=="HttpRequestAsync"or ar=="ReportAbuseV3")then
-        warn(errstr)
-        whatasigma("Prevented a malicious function to execute",0.05,2.5)
-        return nil
-    end
-    if(ar=="GetAsync"and s==rbxapis)or(ar=="MakeRequest"and s==wtfisomni)then
-        warn(errstr)
-        whatasigma("Prevented a malicious function to execute",0.05,2.5)
-        return nil
-    end
-    if (ar=="TakeScreenshot"or ar=="ToggleRecording"or ar=="GetRobuxBalance")or(s==game and((ar=="GetService"and args[1]=="MessageBusService")or ar=="Load"))then
-        whatasigma("Prevented a malicious function to execute",0.05,2.5)
-        error(errstr)
-        return nil
+    if checkcaller()then
+        local ar,args=getnamecallmethod(),{...}
+        local errstr="Blocked "..tostring(ar).." that was created by your exploit // by https://t.me/arceusxscripts"
+        if (ar=="PerformPurchaseV2"or ar=="OpenNativeOverlay"or ar=="AddCoreScriptLocal"or ar=="EmitHybridEvent"or ar=="SendCommand"or ar=="ReturnToJavaScript"or ar=="PromptRobloxPurchase"or ar=="PromptThirdPartyPurchase"or ar=="PostAsyncFullUrl"or ar=="GetAsyncFullUrl"or ar=="PostAsyncFullUrl"or ar=="RequestAsync"or ar=="PostAsync"or ar=="HttpRequestAsync"or ar=="ReportAbuseV3")then
+            warn(errstr)
+            whatasigma("Prevented a malicious function to execute",0.05,2.5)
+            return nil
+        end
+        if(ar=="GetAsync"and s==rbxapis)or(ar=="MakeRequest"and s==wtfisomni)then
+            warn(errstr)
+            whatasigma("Prevented a malicious function to execute",0.05,2.5)
+            return nil
+        end
+        if (ar=="TakeScreenshot"or ar=="ToggleRecording"or ar=="GetRobuxBalance")or(s==game and((ar=="GetService"and args[1]=="MessageBusService")or ar=="Load"))then
+            whatasigma("Prevented a malicious function to execute",0.05,2.5)
+            error(errstr)
+            return nil
+        end
     end
     return o(s,...)
 end))
