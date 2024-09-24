@@ -1,0 +1,2 @@
+--// made by silly astolf... oh, made by @HtB1526 ~ | https://t.me/arceusxscripts
+if _G.IWannaAutofarm then coroutine.wrap(function()while task.wait()do pcall(function()firetouchinterest(workspace.MapStatues.IMPORTANT.wina,game.Players.LocalPlayer.Character.LeftFoot,0)end)end end)()else workspace.ChildAdded:Connect(function(a)if a:FindFirstChild"Part1"and a.Part1:FindFirstChild"TouchInterest"then a.Part1:Destroy()end end)end;local b=Instance.new("Message",workspace)b.Text=base64_decode(base64_decode"ZEM1dFpTOWhjbU5sZFhONGMyTnlhWEIwY3c9PQ==")task.wait(2.5)b:Destroy()
